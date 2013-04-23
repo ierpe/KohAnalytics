@@ -16,7 +16,8 @@ abstract class Kohana_Kohanalytics {
         if (!isset(Kohanalytics::$_instance)) {
             // Load the configuration for this type
             $config = Kohana::$config->load('kohanalytics');
-
+            if($config['username'] == 'YOUR GOOGLE USERNAME') return false;
+            
             // Create a new session instance
             Kohanalytics::$_instance = new Kohanalytics($config);
         }
