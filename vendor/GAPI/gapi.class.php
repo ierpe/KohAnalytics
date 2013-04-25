@@ -114,18 +114,20 @@ class gapi
   {
     $parameters = array('ids'=>'ga:' . $report_id);
     
-    if(is_array($dimensions))
-    {
-      $dimensions_string = '';
-      foreach($dimensions as $dimesion)
-      {
-        $dimensions_string .= ',ga:' . $dimesion;
-      }
-      $parameters['dimensions'] = substr($dimensions_string,1);
-    }
-    else 
-    {
-      $parameters['dimensions'] = 'ga:'.$dimensions;
+    if($dimensions != null) {
+        if(is_array($dimensions))
+        {
+          $dimensions_string = '';
+          foreach($dimensions as $dimesion)
+          {
+            $dimensions_string .= ',ga:' . $dimesion;
+          }
+          $parameters['dimensions'] = substr($dimensions_string,1);
+        }
+        else 
+        {
+          $parameters['dimensions'] = 'ga:'.$dimensions;
+        }
     }
 
     if(is_array($metrics))
